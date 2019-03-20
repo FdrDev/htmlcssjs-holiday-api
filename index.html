@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Holidays</title>
+    <!-- ADD MONTSERRAT FONT-->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <!-- ADD FONTAWESOME -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+    <!-- ADD MY STYLE -->
+    <link rel="stylesheet" href="style.css">
+    <!-- ADD JQUERY -->
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- ADD MY SCRIPT -->
+    <script src="script.js" charset="utf-8"></script>
+    <!-- ADD MOMENT CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.js"></script>
+    <!-- ADD HANDLEBARS CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.1.0/handlebars.min.js"
+    charset="utf-8"></script>
+    <!-- ADD TEMPLATE HANDLEBARS  -->
+    <script id="day-template" type="text/x-handlebars-template">
+      <li data-date="{{ machineData }}"> {{ date }} </li>
+    </script>
+
+  </head>
+  <body>
+    <div class="container">
+      <div class="wrapper">
+        <div class="header">
+          <h1 id="month-name"></h1>
+        </div>
+        <div class="days-container">
+          <ul id="day-list">
+          </ul>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
