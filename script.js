@@ -41,7 +41,7 @@ function getHumanDate(year,month,day) {
   mom.month(month);
   mom.date(day);
 
-  var date = mom.format("DD MMMM YY")
+  var date = mom.format("DD ddd MMMM YY")
   return date;
 }
 
@@ -156,6 +156,40 @@ function addHolidayHighlight(holidays){
 
 }
 
+/*
+## PULISCE IL TITLE E I LI ##
+*/
+function clearAll() {
+  var h1 = $("#month-name");
+  var liItem = $("li");
+  h1.text(" ");
+  liItem.remove();
+}
+
+/*
+## AVANZA DI 1 IL MESE E STAMPA IL RISULTATO ##
+*/
+function clickRight(year,month) {
+  month++;
+  clearAll();
+  printTitle(year,month);
+  printDays(year,month);
+  printHolidays(year, month);
+  return month;
+}
+
+/*
+## DIMINUISCE DI 1 IL MESE E STAMPA IL RISULTATO ##
+*/
+function clickLeft(month) {
+  month--;
+  clearAll();
+  printTitle(year,month);
+  printDays(year,month);
+  printHolidays(year, month);
+  return month;
+}
+
 
 
 function init() {
@@ -166,6 +200,24 @@ function init() {
   printTitle(year,month);
   printDays(year,month);
   printHolidays(year,month);
+
+  /*Arrow click*/
+  var rightArrow = $(".arrow-right");
+  rightArrow.click(function(){
+    if(month<11){
+    month = clickRight(year,month);
+  } else{
+    clearAll();
+    $("#month-name").text("Giovanni ha detto che non vuole")
+  }
+  });
+
+  var leftArrow = $("fa-arrow-alt-circle-left");
+  leftArrow.click(function(){
+    month = clickLeft(year,month);
+  });
+
+
 }
 
 $(document).ready(init);
